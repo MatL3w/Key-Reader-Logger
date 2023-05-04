@@ -14,13 +14,13 @@ int main()
         // Check if the key was pressed since the last time the function was called
         bool wasKeyPressed = (keyState & 0x0001) != 0;
 
-        // Print the results to the console
-        std::cout << "Is 'A' key pressed: " << isKeyPressed << std::endl;
-        std::cout << "Was 'A' key pressed: " << wasKeyPressed << std::endl;
-
-        // Wait for a short period of time
-        Sleep(100);
+        if(isKeyPressed){
+            std::cout << "Is 'A' key pressed: " << isKeyPressed << std::endl;
+        }
+        if(wasKeyPressed){
+            std::cout << "Was 'A' key pressed: " << wasKeyPressed << std::endl;
+        }
+        Sleep(10);
     }
-
     return 0;
 }
