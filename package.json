@@ -4,6 +4,7 @@
   "description": "",
   "gypfile": true,
   "main": "script.js",
+  "type": "module",
   "dependencies": {
     "nan": "^2.3.3"
   },

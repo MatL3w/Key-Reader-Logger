@@ -1,6 +1,14 @@
-console.log('lol');
-const lol = require("./build/Release/my_addon.node");
-console.log(lol.pass_number('a'));
+import { watch } from "node:fs";
+
+// console.log("lol");
+// const lol = require("./build/Release/my_addon.node");
+// console.log(lol.pass_number());
+let i=0;
+watch("lol.txt", (eventType, filename) => {
+  console.log(`event type is: ${eventType}`);
+  i++;
+    console.log(i);
+});
 // const user32 = ffi.Library("user32", {
 //   MessageBoxA: ["int", ["int", "string", "string", "int"]],
 // });
