@@ -6,9 +6,7 @@
   "main": "script.js",
   "type": "module",
   "dependencies": {
-    "nan": "^2.3.3"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

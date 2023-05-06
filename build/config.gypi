@@ -410,6 +410,17 @@
     "want_separate_host_toolset": 0,
     "nodedir": "C:\\Users\\Lewczuk\\AppData\\Local\\node-gyp\\Cache\\20.0.0",
     "standalone_static_library": 1,
-    "msbuild_path": "E:\\visualStudio\\MSBuild\\Current\\Bin\\MSBuild.exe"
+    "msbuild_path": "E:\\visualStudio\\MSBuild\\Current\\Bin\\MSBuild.exe",
+    "cache": "C:\\Users\\Lewczuk\\AppData\\Local\\npm-cache",
+    "globalconfig": "C:\\Users\\Lewczuk\\AppData\\Roaming\\npm\\etc\\npmrc",
+    "global_prefix": "C:\\Users\\Lewczuk\\AppData\\Roaming\\npm",
+    "init_module": "C:\\Users\\Lewczuk\\.npm-init.js",
+    "local_prefix": "E:\\PRYWATA\\KURSY UDEMY\\JavaScript\\Scripts\\Key-Reader-Logger",
+    "metrics_registry": "https://registry.npmjs.org/",
+    "node_gyp": "C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js",
+    "node_options": "--openssl-legacy-provider",
+    "prefix": "C:\\Users\\Lewczuk\\AppData\\Roaming\\npm",
+    "userconfig": "C:\\Users\\Lewczuk\\.npmrc",
+    "user_agent": "npm/9.6.4 node/v20.0.0 win32 x64 workspaces/false"
   }
 }
