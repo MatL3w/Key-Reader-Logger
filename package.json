@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "gypfile": true,
-  "main": "script.js",
+  "main": "KeyReaderLogger.js",
   "type": "module",
-  "dependencies": {
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.1.0",
+    "typescript": "^5.0.4"
+  }
 }
