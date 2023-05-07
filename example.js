@@ -3,7 +3,11 @@ import  {KeyReaderLogger} from "./KeyReaderLogger.js";
 
 const k = new KeyReaderLogger();
 const kLog = new KeyReaderLogger();
-kLog.on('data',(data)=>{
+kLog.startAll();
+kLog.on('mouseData',(data)=>{
+  console.log(data);
+});
+kLog.on("keyData", (data) => {
   console.log(data);
 });
 // console.log(kLog);

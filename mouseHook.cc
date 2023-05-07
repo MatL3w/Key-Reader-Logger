@@ -1,17 +1,13 @@
-#define WIN32_LEAN_AND_MEAN
-#define _WIN32_WINNT 0x0501 // Target Windows XP or later
 #include <Windows.h>
-#include <Winuser.h>
 #include <iostream>
-// Mouse hook procedure
+
 LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode >= 0) {
-        MOUSEHOOKSTRUCT* pMouseHookStruct = reinterpret_cast<MOUSEHOOKSTRUCT*>(lParam);
-        //  = reinterpret_cast<MOUSEHOOKSTRUCTEX*>(lParam);
-        std::cout << "x: " << pMouseHookStruct->pt.x << std::endl
-                  << "y: " << pMouseHookStruct->pt.y  << std::endl
-                  << "dwExtraInfo: " << pMouseHookStruct->dwExtraInfo << std::endl;
-
+        // MOUSEHOOKSTRUCTEX* pMouseHookStruct = reinterpret_cast<MOUSEHOOKSTRUCTEX*>(lParam);
+        MSLLHOOKSTRUCT* pMouseStruct = (MSLLHOOKSTRUCT*)lParam;
+        std::cout << "x: " << pMouseStruct->pt.x << std::endl
+                  << "y: " << pMouseStruct->pt.y  << std::endl
+                  << "time: " << pMouseStruct->time << std::endl;
         if (wParam == WM_LBUTTONDBLCLK) 
         {
             std::cout << "leftKey: click" << std::endl;
@@ -36,18 +32,18 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
         {
             std::cout << "rightKey: up" << std::endl;
         }
-        else if (wParam == WM_MOUSEWHEEL) 
+        if (wParam == WM_MOUSEWHEEL) 
         {
-            std::cout << "scroll: WM_MOUSEWHEEL"<< std::endl;
-            std::cout << "HIWORD"<< HIWORD(wParam) <<std::endl;
-            std::cout << "HIWORD"<< (wParam) <<std::endl;
-            std::cout << WM_XBUTTONDOWN<< std::endl;
+            int delta = GET_WHEEL_DELTA_WPARAM(pMouseStruct->mouseData);
+            int direction = (delta > 0) ? 1 : -1;
+            std::cout << "scrollDirection: "  << direction <<std::endl;
         }
-        // int fwKeys = GET_KEYSTATE_WPARAM(wParam);
-        // int wheelDelta = HIWORD(wParam);
-        // std::cout << "scroll: " << wheelDelta << std::endl;
-        // std::cout << "_WIN32_WINNT: " << _WIN32_WINNT<< std::endl;
-        // std::cout << "scroll: " << fwKeys << std::endl;
+        if (wParam == WM_MBUTTONDOWN ) {
+            std::cout << "scroll:" << "down"<< std::endl;
+        }
+        if (wParam == WM_MBUTTONUP ) {
+            std::cout << "scroll:" << "up"<< std::endl;
+        }
     }
     // Call the next hook procedure in the chain
     return CallNextHookEx(NULL, nCode, wParam, lParam);
@@ -55,6 +51,7 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
 int main() {
     // Install the mouse hook
+    std::cout << _WIN32_WINNT<< std::endl;
     HHOOK hMouseHook = SetWindowsHookEx(WH_MOUSE_LL, MouseProc, NULL, 0);
     if (hMouseHook == NULL) {
         std::cerr << "Failed to install mouse hook" << std::endl;

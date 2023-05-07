@@ -6,7 +6,8 @@
             "args": [
                 "-o",
                 "mHook",
-                "mouseHook.cc"
+                "mouseHook.cc",
+                "-lm"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

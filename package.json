@@ -2,14 +2,13 @@
   "name": "key-reader-logger",
   "version": "1.0.0",
   "description": "",
-  "gypfile": true,
   "main": "KeyReaderLogger.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
-  "author": "",
+  "author": "matl3w",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.1.0",
