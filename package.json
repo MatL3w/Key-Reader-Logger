@@ -1,17 +1,32 @@
 {
   "name": "key-reader-logger",
   "version": "1.0.0",
-  "description": "",
+  "keywords": [
+    "keylogger",
+    "logger",
+    "KeyReaderLogger",
+    "hooks",
+    "mouselogger",
+    "mouse",
+    "keyboard",
+    "windows"
+  ],
+  "description": "package applied windows(only for now) system hooks to get input data from mouses and keyboards",
   "main": "KeyReaderLogger.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatL3w/Key-Reader-Logger"
+  },
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
-  "author": "matl3w",
+  "author": "matl3w (https://github.com/MatL3w)",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.1.0",
+    "key-reader-logger": "^1.0.0",
     "typescript": "^5.0.4"
   }
 }
