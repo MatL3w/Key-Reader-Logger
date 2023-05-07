@@ -1,8 +1,8 @@
-#include <iostream>
+#define WIN32_LEAN_AND_MEAN
+#define _WIN32_WINNT 0x0501 // Target Windows XP or later
 #include <Windows.h>
-#include <WinUser.h>
-#include <windowsx.h>
-MOUSEHOOKSTRUCTEX pMouseHookStruct;
+#include <Winuser.h>
+#include <iostream>
 // Mouse hook procedure
 LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
     if (nCode >= 0) {
@@ -36,14 +36,17 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
         {
             std::cout << "rightKey: up" << std::endl;
         }
-        else if (wParam == 0x020E) 
+        else if (wParam == WM_MOUSEWHEEL) 
         {
-            
-            std::cout << "scroll: " << pMouseHookStruct << std::endl;
+            std::cout << "scroll: WM_MOUSEWHEEL"<< std::endl;
+            std::cout << "HIWORD"<< HIWORD(wParam) <<std::endl;
+            std::cout << "HIWORD"<< (wParam) <<std::endl;
+            std::cout << WM_XBUTTONDOWN<< std::endl;
         }
         // int fwKeys = GET_KEYSTATE_WPARAM(wParam);
-        int wheelDelta = GET_WHEEL_DELTA_WPARAM(wParam);
-        std::cout << "scroll: " << wheelDelta << std::endl;
+        // int wheelDelta = HIWORD(wParam);
+        // std::cout << "scroll: " << wheelDelta << std::endl;
+        // std::cout << "_WIN32_WINNT: " << _WIN32_WINNT<< std::endl;
         // std::cout << "scroll: " << fwKeys << std::endl;
     }
     // Call the next hook procedure in the chain
