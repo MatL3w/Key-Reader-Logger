@@ -7,7 +7,7 @@ export class KeyReaderLogger extends EventEmitter {
         super();
     }
     startKeyboard() {
-        this.childProcessKeyboard = spawn("kHook.exe");
+        this.childProcessKeyboard = spawn("./kHook.exe");
         this.initKeyboard();
     }
     initKeyboard() {
@@ -19,7 +19,7 @@ export class KeyReaderLogger extends EventEmitter {
         });
     }
     startMouse() {
-        this.childProcessMouse = spawn("mHook.exe");
+        this.childProcessMouse = spawn("./mHook.exe");
         this.initMouse();
     }
     initMouse() {
