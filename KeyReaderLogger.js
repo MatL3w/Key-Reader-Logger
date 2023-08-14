@@ -28,7 +28,7 @@ export class KeyReaderLogger extends EventEmitter {
   startMouse() {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    const absolutePath = path.join(__dirname, "kHook.exe");
+    const absolutePath = path.join(__dirname, "mHook.exe");
     this.childProcessMouse = spawn(absolutePath);
     this.initMouse();
   }
